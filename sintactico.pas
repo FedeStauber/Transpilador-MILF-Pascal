@@ -1,6 +1,6 @@
 unit Sintactico;
 
-
+//hola
 interface
 
 uses crt, Datos,Lexico;
