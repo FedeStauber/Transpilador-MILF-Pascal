@@ -44,6 +44,7 @@ begin
                    elementopila2.p_arbol:=arbol;
                    apilar(elementopila,pila);
               end;
+              //FALTA SOLAMENTE ESTO
                for i:=1 to tas[elementopila.simb,compolex]^.cant do
                    agregar_arbol(arbol,tas[elementopila.simb,compolex]^.cant,compolex,lexema);
             //agregar hijos al arbol
@@ -51,6 +52,7 @@ begin
 
            IF ((elementopila.simb=pesos) and (pesos=compolex)) then
               controlador:='Exito';
+
   end;
   writeln(controlador);
 end;
