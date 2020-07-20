@@ -1,6 +1,5 @@
 unit Datos;
-/holaa
-
+//Hola gente
 interface
 
    const
