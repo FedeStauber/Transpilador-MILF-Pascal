@@ -52,7 +52,7 @@ begin
 
            IF ((elementopila.simb=pesos) and (pesos=compolex)) then
               controlador:='Exito';
-           //algoparaprobar
+           
 
   end;
   writeln(controlador);
