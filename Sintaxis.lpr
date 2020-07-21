@@ -15,15 +15,15 @@ begin
   crear_taS(TAS);
   CARGAR_TAS(TAS);
   i:=0;
-  { while i<(filesize(ar)) do
+   while i<(filesize(ar)) do
   begin
   obtenersigcomplex(ar,i,compolex,lexema);
-  writeln('Componentelexico : ',compolex , '   Lexema : ',lexema)
+  writeln('Componentelexico : ',compolex , '   Lexema : ',lexema);
   end;
   readkey;
-  clrscr; }
+  clrscr;
   crear_arbol(arbol);
-  obtener_arbol_derivacion(ar,pila,TAS,arbol);
+  //obtener_arbol_derivacion(ar,pila,TAS,arbol);
   readkey;
   cerrar_Archivo(ar);
 end.
