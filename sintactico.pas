@@ -1,19 +1,20 @@
 unit Sintactico;
 
-//hola
+
 interface
 
 uses crt, Datos,Lexico;
 
-procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas; arbol:t_arbol);
+procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas;var arbol:t_arbol);
 
 implementation
 
-procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas; arbol:t_arbol);
+procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas; var arbol:t_arbol);
 var compolex:t_simGramatical;
     Controlador,Lexema:String;
-    ElementoPila,elementopila2:t_elemento_pila;
+    ElementoPila,elementopila2,elementopila3:t_elemento_pila;
     i,Control:integer;
+    hijo:t_arbol;
 begin
   crear_tas(tas);
   cargar_tAS(TAS);
@@ -35,27 +36,33 @@ begin
              controlador:='Error';
           end
        else
-           If elementopila.simb>pesos then
+           If elementopila.simb>error then
             if tas[elementopila.simb,compolex]=nil then
                controlador:='Error'
+
                else  begin
                for i:=tas[elementopila.simb,compolex]^.cant downto 1 do  begin
                    elementopila2.simb:=tas[elementopila.simb,compolex]^.elementos[i];
                    elementopila2.p_arbol:=arbol;
-                   apilar(elementopila,pila);
+                   apilar(elementopila2,pila);
               end;
               //FALTA SOLAMENTE ESTO
-               for i:=1 to tas[elementopila.simb,compolex]^.cant do
-                   agregar_arbol(arbol,tas[elementopila.simb,compolex]^.cant,compolex,lexema);
+               for i:=1 to tas[elementopila.simb,compolex]^.cant do   begin
+                   agregar_arbol(hijo,tas[elementopila.simb,compolex]^.cant,compolex,lexema);
+                   agregar_hijos(arbol,hijo);
+               end;
             //agregar hijos al arbol
           end;
 
            IF ((elementopila.simb=pesos) and (pesos=compolex)) then
               controlador:='Exito';
            
-
-  end;
+      writeln(elementopila.simb);
+  writeln(compolex);
   writeln(controlador);
+  end;
+
+
 end;
 
 

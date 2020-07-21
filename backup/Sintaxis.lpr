@@ -9,6 +9,7 @@ var
   tas:t_tas;
   arbol:t_arbol;
   pila:t_pila;
+  asd:t_nodo_arbol;
 begin
   abrir_archivo(ar);
   crear_taS(TAS);
@@ -21,9 +22,9 @@ begin
   end;
   readkey;
   clrscr; }
-   for i:=tas[elementopila.simb,compolex]^.cant downto 1 do
-      writeln(i);
+
   crear_arbol(arbol);
+  iniciar_arbol(asd);
   obtener_arbol_derivacion(ar,pila,TAS,arbol);
   readkey;
   cerrar_Archivo(ar);

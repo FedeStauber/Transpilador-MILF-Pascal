@@ -1,5 +1,5 @@
 unit Datos;
-//Hola gente
+
 interface
 
    const
@@ -17,7 +17,7 @@ t_deltacomparador=Array[Q,Sigmacomparador] of Q;
 t_deltaNum=Array[Q,Sigmanum] of Q;
 
 T_Archivo = file of char;
-t_simGramatical = (TProgram,Tid,Tvar,TCuerpo,TcorcheteA,TcorcheteC,Tpuntoycoma,Tasignacion,TAver,TMira,TparA,TparC,TSipasa,TSinopasa,TSuma,Tresta,Tproducto,Tdiv,TRaiz,Tcoma,TPotencia,TY,TerO,Tnel,Tcadena,TComparador,TllaveA,TllaveC,Tdurante,Tnum,pesos,error,VQ,VListaId,VListasentencias,VU,VSentencia,VAsignacion,VLectura,VEscritura,VCondicional,VD,VCiclo,VOP,VB,VK,VT,VZ,VL,VR,VX,VTalCosa,VC,VF,VN,VW,VG);  //resolver y agregar T'«', T'»',
+t_simGramatical = (TProgram,Tid,Tvar,TCuerpo,TcorcheteA,TcorcheteC,Tpuntoycoma,Tasignacion,TAver,TMira,TparA,TparC,TSipasa,TSinopasa,TSuma,Tresta,Tproducto,Tdiv,TRaiz,Tcoma,TPotencia,TY,TerO,Tnel,Tcadena,TComparador,TllaveA,TllaveC,Tdurante,Tentero,Tnum,pesos,error,VQ,VListaId,VListasentencias,VU,VSentencia,VAsignacion,VLectura,VEscritura,VCondicional,VD,VCiclo,VOP,VB,VK,VT,VZ,VL,VR,VX,VTalCosa,VC,VF,VN,VW,VG);
 t_arbol =  ^t_nodo_arbol;
 t_nodo_arbol = record
               simb:t_simGramatical;
@@ -56,6 +56,8 @@ procedure crear_TAS(var TAS : t_TAS);
 procedure cargar_TAS(var TAS : t_TAS);
 procedure crear_arbol(var raiz : t_arbol);
 procedure agregar_arbol(var raiz : t_arbol; N:integer; compolex:t_simGramatical; Lexema:string);
+procedure agregar_hijos(var raiz,hijo : t_arbol);
+
 implementation
 procedure Abrir_Archivo(var ar: T_Archivo);
 begin
@@ -119,6 +121,16 @@ begin
     else
      TAS[F,C]^.elementos[N]:=cosa;
 end;
+procedure colocar_epsilon(var TAS : t_tas;F,C : t_simgramatical);
+var nuevoElem: t_puntero_celda;
+begin
+   IF (TAS[F,C]=Nil)then begin
+    new(nuevoElem);
+    nuevoElem^.cant:=0;
+    TAS[F,C]:=nuevoElem;
+    end
+
+end;
 procedure cargar_TAS(var TAS : t_TAS);
 begin
  colocar_tas(tas,VQ,Tprogram,Tprogram,1,8);
@@ -134,7 +146,7 @@ begin
  colocar_tas(tas,VListaId,Tid,Tpuntoycoma,2,3);
  colocar_tas(tas,VListaId,Tid,VListaId,3,3);
 
- //TAS[VListaId,TCuerpo]:=EPSILON;
+ colocar_epsilon(tas,VListaId,Tcuerpo);
 
  colocar_tas(tas,VListaSentencias,Tid,VSentencia,1,3);
  colocar_tas(tas,VListaSentencias,Tid,Tpuntoycoma,2,3);
@@ -157,8 +169,8 @@ begin
  colocar_tas(tas,VListaSentencias,TDurante,VU,2,3);
 
  colocar_tas(tas,VU,Tid,VListaSentencias,1,1);
- //TAS[VU,TCorcheteC]^.elementos:= EPSILON;
- //TAS[VU,TCorcheteC]^.cant := 1;
+
+ colocar_epsilon(tas,VU,TCorcheteC);
 
  colocar_tas(tas,VU,TAver,VListaSentencias,1,1);
 
@@ -203,8 +215,7 @@ begin
  colocar_tas(tas,VCondicional,TSipasa,TCorcheteC,5,6);
  colocar_tas(tas,VCondicional,TSipasa,VD,6,6);
 
-//TAS[VD,Tpuntoycoma]^.elementos[1]:= EPSILON;
-//TAS[VD,Tpuntoycoma]^.cant:= 1;
+ colocar_epsilon(tas,VD,Tpuntoycoma);
 
  colocar_tas(tas,VD,TSinopasa,TSinopasa,1,4);
  colocar_tas(tas,VD,TSinopasa,TCorcheteA,2,4);
@@ -235,14 +246,11 @@ begin
  colocar_tas(tas,VOP,TNum,VT,1,2);
  colocar_tas(tas,VOP,TNum,VB,2,2);
 
-//TAS[VB,TcorcheteA]^.elementos[1]:= EPSILON;
-//TAS[VB,TcorcheteA]^.cant:= 1;
+ colocar_epsilon(tas,VB,TcorcheteA);
 
-//TAS[VB,Tpuntoycoma]^.elementos[1]:= EPSILON;
-//TAS[VB,Tpuntoycoma]^.cant:= 1;
+ colocar_epsilon(tas,VB,Tpuntoycoma);
 
-//TAS[VB,TparC]^.elementos[1]:=EPSILON;
-//TAS[VB,TparC]^.cant:=1;
+ colocar_epsilon(tas,VB,TparC);
 
 colocar_tas(tas,VB,Tsuma,VK,1,2);
 colocar_tas(tas,VB,Tsuma,VB,2,2);
@@ -250,17 +258,13 @@ colocar_tas(tas,VB,Tsuma,VB,2,2);
 colocar_tas(tas,VB,Tresta,VK,1,2);
 colocar_tas(tas,VB,Tresta,VB,2,2);
 
-//TAS[VB,TY]^.elementos[1]:= EPSILON;
-//TAS[VB,TY]^.cant:= 1;
+colocar_epsilon(tas,VB,TY);
 
-//TAS[VB,TerO]^.elementos[1]:= EPSILON;
-//TAS[VB,TerO]^.cant:= 1;
+colocar_epsilon(tas,VB,TerO);
 
-//TAS[VB,TComparador]^.elementos[1]:= EPSILON;
-//TAS[VB,TComparador]^.cant:= 1;
+colocar_epsilon(tas,VB,TComparador);
 
-//TAS[VB,TLlaveC]^.elementos[1]:= EPSILON;
-//TAS[VB,TLlaveC]^.cant:= 1;
+colocar_epsilon(tas,VB,TLlaveC);
 
 colocar_tas(tas,VK,Tsuma,Tsuma,1,2);
 colocar_tas(tas,VK,Tsuma,VT,2,2);
@@ -286,20 +290,15 @@ colocar_tas(tas,VT,TPotencia,VZ,2,2);
 colocar_tas(tas,VT,TNum,VR,1,2);
 colocar_tas(tas,VT,TNum,VZ,2,2);
 
-//TAS[VZ,TcorchteA]^.elementos[1]:= EPSILON;
-//TAS[VZ,TcorcheteA]^.cant:= 1;
+colocar_epsilon(tas,VZ,TcorcheteA);
 
-//TAS[VZ,Tpuntoycoma]^.elementos[1]:= EPSILON;
-//TAS[VZ,Tpuntoycoma]^.cant:= 1;
+colocar_epsilon(tas,VZ,Tpuntoycoma);
 
-//TAS[VZ,TparC]^.elementos[1]:= EPSILON;
-//TAS[VZ,TparC]^.cant:= 1;
+colocar_epsilon(tas,VZ,TparC);
 
-//TAS[VZ,Tsuma]^.elementos[1]:= EPSILON;
-//TAS[VZ,Tsuma]^.cant:= 1;
+colocar_epsilon(tas,VZ,Tsuma);
 
-//TAS[VZ,Tresta]^.elementos[1]:= EPSILON;
-//TAS[VZ,Tresta]^.cant:= 1;
+colocar_epsilon(tas,VZ,Tresta);
 
 colocar_tas(tas,VZ,Tproducto,VL,1,2);
 colocar_tas(tas,VZ,Tproducto,VZ,2,2);
@@ -307,21 +306,17 @@ colocar_tas(tas,VZ,Tproducto,VZ,2,2);
 colocar_tas(tas,VZ,Tdiv,VL,1,2);
 colocar_tas(tas,VZ,Tdiv,VZ,2,2);
 
-//TAS[VZ,TY]^.elementos[1]:= EPSILON;
-//TAS[VZ,TY]^.cant:= 1;
+colocar_epsilon(tas,VZ,TY);
 
-//TAS[VZ,TerO]^.elementos[1]:= EPSILON;
-//TAS[VZ,TerO]^.cant:= 1;
+colocar_epsilon(tas,VZ,TerO);
 
-//TAS[VZ,TComparador]^.elementos[1]:= EPSILON;
-//TAS[VZ,TComparador]^.cant:= 1;
+colocar_epsilon(tas,VZ,TComparador);
 
-//TAS[VZ,TllaveC]^.elementos[1]:= EPSILON;
-//TAS[VZ,TllaveC]^.cant:= 1;
+colocar_epsilon(tas,VZ,TllaveC);
 
 colocar_tas(tas,VR,Tid,VX,1,1);
 
-colocar_tas(tas,VR,TparC,VX,1,1);
+colocar_tas(tas,VR,TparA,VX,1,1);
 
 colocar_tas(tas,VR,Tresta,VX,1,1);
 
@@ -329,14 +324,14 @@ colocar_tas(tas,VR,TRaiz,TRaiz,1,6);
 colocar_tas(tas,VR,TRaiz,TparA,2,6);
 colocar_tas(tas,VR,TRaiz,VOP,3,6);
 colocar_tas(tas,VR,TRaiz,Tcoma,4,6);
-//colocar_tas(tas,VR,TRaiz,Tentero,5,6);  //ver lo del entero
+colocar_tas(tas,VR,TRaiz,Tentero,5,6);
 colocar_tas(tas,VR,TRaiz,TparC,6,6);
 
 colocar_tas(tas,VR,TPotencia,TPotencia,1,6);
 colocar_tas(tas,VR,TPotencia,TparA,2,6);
 colocar_tas(tas,VR,TPotencia,VOP,3,6);
 colocar_tas(tas,VR,TPotencia,Tcoma,4,6);
-//colocar_tas(tas,VR,TPotencia,Tentero,5,6);   //ver lo de tentero
+colocar_tas(tas,VR,TPotencia,Tentero,5,6);
 colocar_tas(tas,VR,TPotencia,TparC,6,6);
 
 colocar_tas(tas,VR,TNum,VX,1,1);
@@ -355,17 +350,12 @@ colocar_tas(tas,VX,TNum,TNum,1,1);
 colocar_tas(tas,VTalCosa,TNel,VN,1,2);
 colocar_tas(tas,VTalCosa,TNel,VC,2,2);
 
-colocar_tas(tas,VC,TNel,VN,1,2);
-colocar_tas(tas,VC,TNel,VF,2,2);
-
-//TAS[VF,TcorcheteA]^.elementos[1]:= EPSILON;
-//TAS[VF,TcorcheteA]^.cant:= 1;
+colocar_epsilon(tas,VF,TcorcheteA);
 
 colocar_tas(tas,VF,TY,TY,1,2);
 colocar_tas(tas,VF,TY,VTalcosa,2,2);
 
-//TAS[VF,TcorcheteC]^.elementos[1]:= EPSILON;
-//TAS[VF,TcorcheteC]^.cant:= 1;
+colocar_epsilon(tas,VF,TLlaveC);
 
 colocar_tas(tas,VN,TNel,TNel,1,2);
 colocar_tas(tas,VN,TNel,VW,2,2);
@@ -391,39 +381,57 @@ colocar_tas(tas,VW,TNum,VG,2,2);
 colocar_tas(tas,VG,TComparador,TComparador,1,2);
 colocar_tas(tas,VG,TComparador,VOP,2,2);
 
+colocar_epsilon(tas,VB,Tcoma);
+
+colocar_tas(tas,VL,Tproducto,Tproducto,1,2);
+colocar_tas(tas,VL,Tproducto,VR,2,2);
+
+colocar_tas(tas,VL,Tdiv,Tdiv,1,2);
+colocar_tas(tas,VL,Tdiv,VR,2,2);
+
+colocar_tas(tas,VX,Tentero,Tentero,1,1);
+
+colocar_tas(tas,VC,TcorcheteA,VF,1,1);
+
+colocar_tas(tas,VC,TY,VF,1,1);
+
+colocar_tas(tas,VC,Tero,TerO,1,2);
+colocar_tas(tas,VC,Tero,VTalcosa,2,2);
+
+colocar_tas(tas,VC,TllaveC,VF,1,1);
+
+colocar_tas(tas,VW,TllaveA,TLlaveA,1,3);
+colocar_tas(tas,VW,TllaveA,Vtalcosa,2,3);
+colocar_tas(tas,VW,TllaveA,TllaveC,3,3);
+
+colocar_epsilon(tas,Vz,Tcoma);
 end;
 procedure crear_arbol(var raiz : t_arbol);
  begin
    raiz:=nil;
+   new(raiz);
  end;
 procedure agregar_arbol(var raiz : t_arbol; N:integer; compolex:t_simGramatical; Lexema:string);
 var i: integer;
-    cargado:boolean;
+    aux:t_arbol;
  begin
-
-   if (raiz = nil) then
-      begin
-        new(raiz);
-        raiz^.simb:=compolex;
-        raiz^.lexema:=lexema;
+        new(aux);
+        aux^.simb:=compolex;
+        aux^.lexema:=lexema;
+        aux^.cant_hijos:=0;
         for i:= 1 to n do
-        raiz^.hijos[i]:=nil;
-
-      end
-   else
-       repeat
-       If raiz^.hijos[i]=nil then   begin
-           agregar_arbol(raiz^.hijos[i],N,Compolex,Lexema);
-           inc(i);
-       end
-       else
-       begin
-       inc(i);
-       cargado:=falsE;
-       end;
-       until(cargado);
-
+        aux^.hijos[i]:=nil;
+        raiz:=aux;
  end;
+procedure agregar_hijos(var raiz,hijo : t_arbol);
+begin
+     if raiz^.cant_hijos < emax then
+	begin
+       inc(raiz^.cant_hijos);
+       raiz^.hijos[raiz^.cant_hijos] := hijo;
+end;
+
+end;
 
 end.
 
