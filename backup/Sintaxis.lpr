@@ -1,8 +1,8 @@
 program Sintaxis;
 
-uses Datos, Lexico,crt, Sintactico;
+uses Datos, Lexico,crt, Sintactico, TypInfo;
 var
-  ar,ar_arbol : t_archivo;
+  ar : t_archivo;
   i: integer;
   desplazamiento,lexema:string;
   A,compolex:t_simgramatical;
@@ -10,8 +10,10 @@ var
   arbol:t_arbol;
   pila:t_pila;
   asd:t_nodo_arbol;
+  ar_arbol : t_archivo_arbol;
 
 begin
+  desplazamiento :=#32;
   abrir_archivo(ar);
   Abrir_Archivo_Arbol(ar_arbol);
   crear_taS(TAS);
@@ -26,8 +28,9 @@ begin
   clrscr;    }
   crear_arbol(arbol);
   obtener_arbol_derivacion(ar,pila,TAS,arbol);
-  guardar_arbol_enarchivo (ar_arbol,arbol);
+  guardar_arbol_enarchivo (ar_arbol,arbol,desplazamiento);
   readkey;
   cerrar_Archivo(ar);
+  cerrar_archivo_Arbol(ar_arbol);
 end.
 

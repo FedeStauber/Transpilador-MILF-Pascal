@@ -43,7 +43,7 @@ t_celda =  record
                  end;
 t_puntero_celda =   ^t_celda;
 t_TAS = array[VQ..VG,Tprogram..pesos] of t_puntero_celda;
-
+t_archivo_arbol= file of char ;
 
 
 procedure Cerrar_Archivo(var ar:T_Archivo);
@@ -57,8 +57,9 @@ procedure cargar_TAS(var TAS : t_TAS);
 procedure crear_arbol(var raiz : t_arbol);
 procedure crear_nodo(var raiz : t_arbol; compolex:t_simGramatical; Lexema:string);
 procedure agregar_hijos(var raiz,hijo : t_arbol);
-procedure guardar_arbol_enarchivo(var ar : t_Archivo; var arbol:t_arbol);
-procedure Abrir_Archivo_Arbol(var ar: T_Archivo);
+procedure guardar_arbol_enarchivo(var ar : t_Archivo_Arbol; var arbol:t_arbol; var desplazamiento : string);
+procedure Abrir_Archivo_Arbol(var ar: T_Archivo_arbol);
+procedure cerrar_archivo_Arbol(var ar : t_archivo_arbol);
 implementation
 procedure Abrir_Archivo(var ar: T_Archivo);
 begin
@@ -73,6 +74,10 @@ procedure Cerrar_Archivo(var ar:T_Archivo);
 begin
   close(ar);
 end;
+procedure cerrar_archivo_Arbol(var ar : t_archivo_arbol);
+begin
+  close(ar);
+  end;
 function leer_archivo(var ar: T_Archivo; pos :cardinal):char;
 begin
   seek(ar,pos);
@@ -448,7 +453,7 @@ begin
 end;
 
 end;
-procedure Abrir_Archivo_Arbol(var ar: T_Archivo);
+procedure Abrir_Archivo_Arbol(var ar: T_Archivo_arbol);
 begin
   assign(ar,'D:\archivos\archivo_Arbol');
   {$I-}
@@ -457,14 +462,22 @@ begin
   if IOResult  <> 0 then
   rewrite(ar);
 end;
-procedure guardar_arbol_enarchivo (var ar : t_Archivo; var arbol:t_arbol);
+procedure escribir(var ar : t_archivo_Arbol;  a_escribir : string);
 var i : integer;
-    desplazamiento : string;
 begin
-     desplazamiento :='  ';
-     writeln(ar,desplazamiento + getenumname(typeinfo(t_simgramatical),ord(arbol^.simb)));
+  for i := 1 to length(a_escribir) do
+      write(ar,a_escribir[i]);
+  write(ar,#10);
+  write(ar,#13);
+end;
+
+procedure guardar_arbol_enarchivo (var ar : t_Archivo_arbol; var arbol:t_arbol; var  desplazamiento :string);
+var i : integer;
+begin
+     desplazamiento:=desplazamiento+#32 ;
+     escribir(ar,desplazamiento+getenumname(typeinfo(t_simgramatical),ord(arbol^.simb)));
         for i:=1 to arbol^.cant_hijos do  begin
-            guardar_arbol_enarchivo(ar,arbol^.hijos[i]);
+            guardar_arbol_enarchivo(ar,arbol^.hijos[i],Desplazamiento);
 
         end;
 
