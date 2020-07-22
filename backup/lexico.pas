@@ -84,6 +84,7 @@ Begin
        es_id:=true;
        case upcase(lexema) of
          'AVER': compolex:=TAver;
+         'MIRA': compolex:=Tprogram;
          'PROGRAM': compolex:=Tprogram;
          'VAR': compolex:=Tvar;
          'CUERPO': compolex:=Tcuerpo;
@@ -91,7 +92,7 @@ Begin
          'SINOPASA': compolex:=Tsinopasa;
          'DURANTE': compolex:=TDurante;
          'RAIZ': compolex:=TRaiz;
-         'Potencia': compolex:=TPotencia;
+         'POTENCIA': compolex:=TPotencia;
          'NEL': compolex:=TNel;
        else
           compolex:=Tid;
@@ -235,7 +236,7 @@ Begin
  Delta[4,OtroNum]:=2;
  EstadoActual:=0;
  Lexema:='';
- while ((control<filesize(fuente)) and (not(EstadoActual in [2,5,6]))     //((EstadoActual=5)or(EstadoActual=6)or(EstadoActual=2)))) do
+ while ((control<filesize(fuente)) and (not(EstadoActual in [2,5,6]))) do    //((EstadoActual=5)or(EstadoActual=6)or(EstadoActual=2)))) do
   begin
     C:=leer_archivo(fuente,control);
     EstadoActual:=Delta[EstadoActual,carasimbnum(C)];
@@ -320,9 +321,9 @@ Begin
              lexema:= '/';
              car_es:=true;
              end;
-        ',': begin
-             compolex:=Tcoma;
-             lexema:= ',';
+        '.': begin
+             compolex:=Tpun;
+             lexema:= '.';
              car_es:=true;
              end;
         '{': begin
@@ -355,7 +356,7 @@ end;
 end;
 
 
-//procedure obtenersigcomplex(var fuente:t_archivo; var control:integer; var compolex:t_simGramatical; var lexema:string); //var l:t_tabla);
+procedure obtenersigcomplex(var fuente:t_archivo; var control:integer; var compolex:t_simGramatical; var lexema:string); //var l:t_tabla);
 var
 C:char;
 begin
@@ -385,4 +386,3 @@ end;
 
 
 end.
-

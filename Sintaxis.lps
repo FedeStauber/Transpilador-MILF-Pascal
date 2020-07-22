@@ -4,118 +4,119 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="22">
+    <Units Count="23">
       <Unit0>
         <Filename Value="Sintaxis.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="13" Y="3"/>
-        <UsageCount Value="101"/>
+        <CursorPos X="46" Y="3"/>
+        <UsageCount Value="108"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="datos.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Datos"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="296"/>
-        <CursorPos X="80" Y="316"/>
-        <UsageCount Value="101"/>
+        <TopLine Value="434"/>
+        <CursorPos X="75" Y="465"/>
+        <FoldState Value=" T3iS0382"/>
+        <UsageCount Value="108"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="funcionamiento.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Lexico"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="340"/>
-        <CursorPos Y="358"/>
-        <FoldState Value=" T3B094 pibj80l1T"/>
-        <UsageCount Value="101"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <FoldState Value=" T3B094 pibj80l111)"/>
+        <UsageCount Value="108"/>
       </Unit2>
       <Unit3>
         <Filename Value="sintactico.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Sintactico"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="33"/>
-        <CursorPos Y="63"/>
-        <UsageCount Value="48"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="37"/>
+        <CursorPos X="3" Y="69"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
-        <Filename Value="D:\Downloads\TP FINAL BASSO BONTI ECHEVESTE\Actual\u_datos.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="24"/>
-        <CursorPos Y="66"/>
-        <FoldState Value=" T3b045Z"/>
-        <UsageCount Value="4"/>
+        <Filename Value="lexico.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Lexico"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="13" Y="268"/>
+        <FoldState Value=" T3L0B212\"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
+        <Filename Value="D:\Downloads\TP FINAL BASSO BONTI ECHEVESTE\Actual\u_datos.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos Y="66"/>
+        <FoldState Value=" T3b045Z"/>
+        <UsageCount Value="10"/>
+      </Unit5>
+      <Unit6>
         <Filename Value="..\Proyecto final\Proyecto Final Sintaxis\AnalizadorLexico.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="288"/>
         <CursorPos X="26" Y="315"/>
         <UsageCount Value="10"/>
-      </Unit5>
-      <Unit6>
+      </Unit6>
+      <Unit7>
         <Filename Value="..\UTN\Segundo año\Sintaxis\asd\problema4.pas"/>
         <UnitName Value="Problema4"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos X="28" Y="21"/>
         <UsageCount Value="5"/>
-      </Unit6>
-      <Unit7>
+      </Unit7>
+      <Unit8>
         <Filename Value="D:\Downloads\TP FINAL BASSO BONTI ECHEVESTE\Actual\u_arbol.pas"/>
         <UnitName Value="u_Arbol"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="4"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="D:\Downloads\TP FINAL BASSO BONTI ECHEVESTE\Actual\manejo_registros.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="58"/>
-        <CursorPos Y="84"/>
-        <UsageCount Value="9"/>
       </Unit8>
       <Unit9>
+        <Filename Value="D:\Downloads\TP FINAL BASSO BONTI ECHEVESTE\Actual\manejo_registros.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="61"/>
+        <CursorPos X="19" Y="75"/>
+        <UsageCount Value="10"/>
+      </Unit9>
+      <Unit10>
         <Filename Value="D:\Downloads\Proyecto Sintaxis\Proy 2018\Proyecto Sintaxis (actual\Pankrac\parser.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="35" Y="33"/>
         <UsageCount Value="4"/>
-      </Unit9>
-      <Unit10>
+      </Unit10>
+      <Unit11>
         <Filename Value="D:\Downloads\Proyecto Sintaxis\Proy 2018\Proyecto Sintaxis (actual\Pankrac\tas.pas"/>
         <UnitName Value="TAS"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="183"/>
         <CursorPos X="43" Y="17"/>
         <UsageCount Value="4"/>
-      </Unit10>
-      <Unit11>
+      </Unit11>
+      <Unit12>
         <Filename Value="D:\Downloads\Proyecto Sintaxis\Proy 2018\Proyecto Sintaxis (actual\Pankrac\analizadorlexico.pas"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="4"/>
-      </Unit11>
-      <Unit12>
+      </Unit12>
+      <Unit13>
         <Filename Value="D:\Downloads\Usa pila\pila.pas"/>
         <UnitName Value="Pila"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="20"/>
-      </Unit12>
-      <Unit13>
+      </Unit13>
+      <Unit14>
         <Filename Value="D:\Downloads\Usa pila\usapila.lpr"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="5"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="Lexico.pas"/>
-        <UnitName Value="Funcionamiento"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="12"/>
-        <UsageCount Value="8"/>
       </Unit14>
       <Unit15>
         <Filename Value="..\..\UTN\primer año\Tp_final\u_arbol.pas"/>
@@ -164,127 +165,137 @@
         <FoldState Value=" T3T2{G4 pk9mU292 pj2jH294]93jW2}du"/>
         <UsageCount Value="9"/>
       </Unit21>
+      <Unit22>
+        <Filename Value="D:\Downloads\Proyecto Sintaxis\2019\herramientas.pas"/>
+        <UnitName Value="Herramientas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="396"/>
+        <CursorPos X="10" Y="779"/>
+        <FoldState Value=" T3Y0{K4 pk6mV292 pj4jJ293 pidjC2N2S"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit22>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="18" TopLine="10"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="464" Column="16" TopLine="425"/>
       </Position1>
       <Position2>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="68" TopLine="33"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="460" Column="60" TopLine="425"/>
       </Position2>
       <Position3>
-        <Filename Value="Sintaxis.lpr"/>
-        <Caret Line="27"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="46" Column="32" TopLine="26"/>
       </Position3>
       <Position4>
-        <Filename Value="Sintaxis.lpr"/>
-        <Caret Line="28"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="463" Column="24" TopLine="425"/>
       </Position4>
       <Position5>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="60" Column="45" TopLine="33"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="462" Column="29" TopLine="425"/>
       </Position5>
       <Position6>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="70" Column="75" TopLine="32"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="464" Column="23" TopLine="426"/>
       </Position6>
       <Position7>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="71" Column="65" TopLine="32"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="465" Column="11" TopLine="426"/>
       </Position7>
       <Position8>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="69" Column="73" TopLine="32"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="60" Column="78" TopLine="51"/>
       </Position8>
       <Position9>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="71" Column="64" TopLine="32"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="467" Column="40" TopLine="426"/>
       </Position9>
       <Position10>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="70" Column="71" TopLine="32"/>
+        <Filename Value="Sintaxis.lpr"/>
+        <Caret Line="13" Column="29"/>
       </Position10>
       <Position11>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="71" Column="63" TopLine="32"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="451" Column="54" TopLine="429"/>
       </Position11>
       <Position12>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="70" Column="66" TopLine="32"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="61" Column="54" TopLine="41"/>
       </Position12>
       <Position13>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="71" Column="57" TopLine="32"/>
+        <Filename Value="Sintaxis.lpr"/>
+        <Caret Line="29" Column="30"/>
       </Position13>
       <Position14>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="31" TopLine="11"/>
+        <Filename Value="Sintaxis.lpr"/>
+        <Caret Line="5" Column="14"/>
       </Position14>
       <Position15>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="18" TopLine="10"/>
+        <Filename Value="Sintaxis.lpr"/>
+        <Caret Line="16" Column="31"/>
       </Position15>
       <Position16>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="68" Column="32" TopLine="33"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="61" Column="48" TopLine="41"/>
       </Position16>
       <Position17>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="64" TopLine="33"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="451" Column="48" TopLine="434"/>
       </Position17>
       <Position18>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="31" TopLine="10"/>
+        <Filename Value="Sintaxis.lpr"/>
+        <Caret Line="13" Column="24"/>
       </Position18>
       <Position19>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="33" TopLine="10"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="46" TopLine="32"/>
       </Position19>
       <Position20>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="34" TopLine="10"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="60" Column="53" TopLine="40"/>
       </Position20>
       <Position21>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="43" TopLine="10"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="46" TopLine="26"/>
       </Position21>
       <Position22>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="44" TopLine="11"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="465" Column="32" TopLine="434"/>
       </Position22>
       <Position23>
-        <Filename Value="sintactico.pas"/>
-        <Caret Line="43" Column="38" TopLine="12"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="47" Column="15" TopLine="31"/>
       </Position23>
       <Position24>
-        <Filename Value="Sintaxis.lpr"/>
-        <Caret Line="18" Column="4"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="4" Column="17"/>
       </Position24>
       <Position25>
         <Filename Value="Sintaxis.lpr"/>
-        <Caret Line="14"/>
+        <Caret Line="3" Column="46"/>
       </Position25>
       <Position26>
-        <Filename Value="Sintaxis.lpr"/>
-        <Caret Line="15"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="465" Column="69" TopLine="434"/>
       </Position26>
       <Position27>
-        <Filename Value="Sintaxis.lpr"/>
-        <Caret Line="16"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="471" Column="45" TopLine="434"/>
       </Position27>
       <Position28>
-        <Filename Value="Sintaxis.lpr"/>
-        <Caret Line="17"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="465" Column="11" TopLine="434"/>
       </Position28>
       <Position29>
-        <Filename Value="Sintaxis.lpr"/>
-        <Caret Line="22" Column="23"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="462" Column="28" TopLine="434"/>
       </Position29>
       <Position30>
-        <Filename Value="funcionamiento.pas"/>
-        <Caret Line="380" Column="18" TopLine="347"/>
+        <Filename Value="datos.pas"/>
+        <Caret Line="465" Column="48" TopLine="434"/>
       </Position30>
     </JumpHistory>
     <RunParams>

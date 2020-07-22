@@ -462,7 +462,7 @@ var i : integer;
     desplazamiento : string;
 begin
      desplazamiento :='  ';
-     writeln(ar,desplazamiento + getenumname(typeinfo(t_simgramatical),ord(arbol^.simb)));
+     writeln(ar,desplazamiento + (arbol^.simb)));
         for i:=1 to arbol^.cant_hijos do  begin
             guardar_arbol_enarchivo(ar,arbol^.hijos[i]);
 

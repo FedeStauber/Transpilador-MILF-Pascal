@@ -367,6 +367,7 @@ Begin
      inc (control);
      c:=leer_archivo(fuente,control);
 end;
+writeln('sad');
     if es_id(fuente,control,compolex,lexema) then
     else
         If es_num (fuente,control,compolex,lexema) then

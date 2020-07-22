@@ -84,6 +84,7 @@ Begin
        es_id:=true;
        case upcase(lexema) of
          'AVER': compolex:=TAver;
+         'MIRA': compolex:=Tmira;
          'PROGRAM': compolex:=Tprogram;
          'VAR': compolex:=Tvar;
          'CUERPO': compolex:=Tcuerpo;
@@ -91,7 +92,7 @@ Begin
          'SINOPASA': compolex:=Tsinopasa;
          'DURANTE': compolex:=TDurante;
          'RAIZ': compolex:=TRaiz;
-         'Potencia': compolex:=TPotencia;
+         'POTENCIA': compolex:=TPotencia;
          'NEL': compolex:=TNel;
        else
           compolex:=Tid;
@@ -223,7 +224,7 @@ Begin
  Delta[0,OtroNum]:=2;
  Delta[1,Coma]:=4;
  Delta[1,DigitoNum]:=1;
- Delta[1,OtroNum]:=5;
+ Delta[1,OtroNum]:=6;
  Delta[2,Coma]:=2;
  Delta[2,DigitoNum]:=2;
  Delta[2,OtroNum]:=2;
@@ -235,7 +236,7 @@ Begin
  Delta[4,OtroNum]:=2;
  EstadoActual:=0;
  Lexema:='';
- while ((control<filesize(fuente)) and (not((EstadoActual=5)or(EstadoActual=2)))) do
+ while ((control<filesize(fuente)) and (not(EstadoActual in [2,5,6]))) do    //((EstadoActual=5)or(EstadoActual=6)or(EstadoActual=2)))) do
   begin
     C:=leer_archivo(fuente,control);
     EstadoActual:=Delta[EstadoActual,carasimbnum(C)];
@@ -243,13 +244,20 @@ Begin
     Lexema:=Lexema+C;
     Inc(control);
   end;
-  if(EstadoActual in [1,3,5]) then
+  if(EstadoActual in [3,5]) then
      begin
        es_num:=true;
        compolex:=TNum;
        dec(control);
      end
-  else    begin
+  else
+  if(EstadoActual in [1,6]) then
+     begin
+       es_num:=true;
+       compolex:=Tentero;
+       dec(control);
+     end
+  else begin
     es_num:=false;
     control:=controloriginal;
     end;
@@ -313,9 +321,9 @@ Begin
              lexema:= '/';
              car_es:=true;
              end;
-        ',': begin
-             compolex:=Tcoma;
-             lexema:= ',';
+        '.': begin
+             compolex:=Tpun;
+             lexema:= '.';
              car_es:=true;
              end;
         '{': begin
@@ -355,7 +363,7 @@ begin
 lexema:='';
 compolex:=ERROR;
 c:=leer_archivo(fuente,control);
-while (c in[#0..#32]) and ((c<>'$') and (control<Filesize(fuente))) do       //SALTEA ESPACIOS EN BLANCO Y CARACTERES NO SIGNIFICATIVOS
+while ((c in[#0..#32])  and (control<Filesize(fuente))) do       //SALTEA ESPACIOS EN BLANCO Y CARACTERES NO SIGNIFICATIVOS
 Begin
      inc (control);
      c:=leer_archivo(fuente,control);
@@ -370,6 +378,7 @@ end;
                 else
                     if(car_es(fuente,control,compolex,lexema)) then
                       inc(control);
+
 end;
 
 
@@ -377,4 +386,3 @@ end;
 
 
 end.
-

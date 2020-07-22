@@ -1,6 +1,6 @@
 program Sintaxis;
 
-uses Datos, Lexico,crt, Sintactico, TypInfo;
+uses Datos, Lexico,crt, Sintactico;
 var
   ar,ar_arbol : t_archivo;
   i: integer;

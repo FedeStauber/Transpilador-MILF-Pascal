@@ -2,4 +2,5 @@
 <CONFIG>
   <Compiler Value="D:\Lazarus\fpc\3.0.4\bin\x86_64-win64\fpc.exe" Date="1325662982"/>
   <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq &quot;-FiD:\Desktop\Proyecto Sintaxis\Codigo\lib\x86_64-win64&quot; &quot;-FuD:\Desktop\Proyecto Sintaxis\Codigo\&quot; &quot;-FUD:\Desktop\Proyecto Sintaxis\Codigo\lib\x86_64-win64\&quot; &quot;-FED:\Desktop\Proyecto Sintaxis\Codigo\&quot; &quot;-oD:\Desktop\Proyecto Sintaxis\Codigo\Sintaxis.exe&quot; Sintaxis.lpr"/>
+  <Complete Value="False"/>
 </CONFIG>

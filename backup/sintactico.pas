@@ -66,7 +66,7 @@ while not((Controlador='Error') or (Controlador='Exito')) do
    //write('compolex   ', compolex );
   end;
   writeln(controlador);
-
+  guardar_arbol_enarchivo (arbol);
 end;
 
 
