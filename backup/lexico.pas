@@ -1,11 +1,11 @@
 unit Lexico;
 
 interface
-uses datos,crt;
+uses datos,crt,Lista;
 
 
 
-procedure obtenersigcomplex(var fuente:t_archivo; var control:integer; var compolex:t_simGramatical; var lexema:string);
+procedure obtenersigcomplex(var fuente:t_archivo; var control:integer; var compolex:t_simGramatical; var lexema:string; var l : t_lista);
 
 
 implementation
@@ -84,7 +84,7 @@ Begin
        es_id:=true;
        case upcase(lexema) of
          'AVER': compolex:=TAver;
-         'MIRA': compolex:=Tprogram;
+         'MIRA': compolex:=Tmira;
          'PROGRAM': compolex:=Tprogram;
          'VAR': compolex:=Tvar;
          'CUERPO': compolex:=Tcuerpo;
@@ -356,7 +356,7 @@ end;
 end;
 
 
-procedure obtenersigcomplex(var fuente:t_archivo; var control:integer; var compolex:t_simGramatical; var lexema:string); //var l:t_tabla);
+procedure obtenersigcomplex(var fuente:t_archivo; var control:integer; var compolex:t_simGramatical; var lexema:string; var l : t_lista); //var l:t_tabla);
 var
 C:char;
 begin
@@ -369,6 +369,10 @@ Begin
      c:=leer_archivo(fuente,control);
 end;
     if es_id(fuente,control,compolex,lexema) then
+    begin
+         If  not (esta_en_lista(L,Lexema)) then
+             agregar_lista(l,Lexema) ;
+    end
     else
         If es_num (fuente,control,compolex,lexema) then
         else

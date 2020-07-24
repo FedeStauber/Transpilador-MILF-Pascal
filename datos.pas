@@ -47,7 +47,7 @@ t_archivo_arbol= file of char ;
 
 
 procedure Cerrar_Archivo(var ar:T_Archivo);
-procedure Abrir_Archivo(var ar: T_Archivo);
+procedure Abrir_Archivo(var ar: t_archivo);
 function leer_archivo(var ar: T_Archivo; pos :cardinal):char;
 Procedure crear_pila(tope:t_pila);
 procedure Apilar(nuevoDato: t_elemento_pila; var puntero:t_pila);
@@ -57,11 +57,11 @@ procedure cargar_TAS(var TAS : t_TAS);
 procedure crear_arbol(var raiz : t_arbol);
 procedure crear_nodo(var raiz : t_arbol; compolex:t_simGramatical; Lexema:string);
 procedure agregar_hijos(var raiz,hijo : t_arbol);
-procedure guardar_arbol_enarchivo(var ar : t_Archivo_Arbol; var arbol:t_arbol; var desplazamiento : string);
-procedure Abrir_Archivo_Arbol(var ar: T_Archivo_arbol);
-procedure cerrar_archivo_Arbol(var ar : t_archivo_arbol);
+procedure guardar_arbol_enarchivo(var ar : text; var arbol:t_arbol; desplazamiento : string);
+procedure Abrir_Archivo_Arbol(var ar: text);
+procedure cerrar_archivo_Arbol(var ar : text);
 implementation
-procedure Abrir_Archivo(var ar: T_Archivo);
+procedure Abrir_Archivo(var ar: t_Archivo);
 begin
   assign(ar,'D:\archivos\archivo');
   {$I-}
@@ -74,7 +74,7 @@ procedure Cerrar_Archivo(var ar:T_Archivo);
 begin
   close(ar);
 end;
-procedure cerrar_archivo_Arbol(var ar : t_archivo_arbol);
+procedure cerrar_archivo_Arbol(var ar : text);
 begin
   close(ar);
   end;
@@ -364,12 +364,8 @@ colocar_tas(tas,VX,TNum,TNum,1,1);
 colocar_tas(tas,VTalCosa,TNel,VN,1,2);
 colocar_tas(tas,VTalCosa,TNel,VC,2,2);
 
-colocar_epsilon(tas,VF,TcorcheteA);
-
 colocar_tas(tas,VF,TY,TY,1,2);
 colocar_tas(tas,VF,TY,VTalcosa,2,2);
-
-colocar_epsilon(tas,VF,TLlaveC);
 
 colocar_tas(tas,VN,TNel,TNel,1,2);
 colocar_tas(tas,VN,TNel,VW,2,2);
@@ -408,18 +404,22 @@ colocar_tas(tas,VL,Tdiv,VR,2,2);
 
 colocar_tas(tas,VX,Tentero,Tentero,1,1);
 
-colocar_tas(tas,VC,TcorcheteA,VF,1,1);
-
 colocar_tas(tas,VC,TY,VF,1,1);
 
 colocar_tas(tas,VC,Tero,TerO,1,2);
 colocar_tas(tas,VC,Tero,VTalcosa,2,2);
 
-colocar_tas(tas,VC,TllaveC,VF,1,1);
-
 colocar_tas(tas,VW,TllaveA,TLlaveA,1,3);
 colocar_tas(tas,VW,TllaveA,Vtalcosa,2,3);
 colocar_tas(tas,VW,TllaveA,TllaveC,3,3);
+
+colocar_tas(tas,VC,Tnel,VF,3,3);
+
+colocar_tas(tas,VF,Tnel,VN,3,3);
+
+colocar_epsilon(tas,VB,Tnel);
+
+colocar_epsilon(tas,VD,Tnel);
 
 colocar_epsilon(tas,Vz,Tpun);
 
@@ -453,34 +453,31 @@ begin
 end;
 
 end;
-procedure Abrir_Archivo_Arbol(var ar: T_Archivo_arbol);
+procedure Abrir_Archivo_Arbol(var ar: textfile);
 begin
-  assign(ar,'D:\archivos\archivo_Arbol');
+  assign(ar,'D:\archivos\archivo_Arbol.txt');
   {$I-}
-  reset(ar);
+  rewrite(ar);
   {$I+}
   if IOResult  <> 0 then
   rewrite(ar);
 end;
-procedure escribir(var ar : t_archivo_Arbol;  a_escribir : string);
+procedure guardar_arbol_enarchivo (var ar :textfile; var arbol:t_arbol; desplazamiento :string);
 var i : integer;
 begin
-  for i := 1 to length(a_escribir) do
-      write(ar,a_escribir[i]);
-  write(ar,#10);
-  write(ar,#13);
-end;
-
-procedure guardar_arbol_enarchivo (var ar : t_Archivo_arbol; var arbol:t_arbol; var  desplazamiento :string);
-var i : integer;
-begin
-     desplazamiento:=desplazamiento+#32 ;
-     escribir(ar,desplazamiento+getenumname(typeinfo(t_simgramatical),ord(arbol^.simb)));
+     desplazamiento:=desplazamiento+'  ' ;
+     writeln(ar,desplazamiento+getenumname(typeinfo(t_simgramatical),ord(arbol^.simb)));
         for i:=1 to arbol^.cant_hijos do  begin
             guardar_arbol_enarchivo(ar,arbol^.hijos[i],Desplazamiento);
 
         end;
 
 end;
+
+
+
+
+
+
 end.
 

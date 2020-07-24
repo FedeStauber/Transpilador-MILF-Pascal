@@ -26,7 +26,7 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="5">
+    <Units Count="7">
       <Unit0>
         <Filename Value="Sintaxis.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -51,6 +51,15 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Lexico"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="evaluador.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Evaluador"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="lista.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

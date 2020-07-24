@@ -3,13 +3,13 @@ unit Sintactico;
 
 interface
 
-uses crt, Datos,Lexico;
+uses crt, Datos,Lexico,Lista;
 
-procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas;var arbol:t_arbol);
+procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas;var arbol:t_arbol; var Lista : t_lista);
 
 implementation
 
-procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas; var arbol:t_arbol);
+procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas; var arbol:t_arbol; var Lista : t_lista);
 var compolex:t_simGramatical;
     Controlador,Lexema:String;
     ElementoPila,elementopila2,elementopila3:t_elemento_pila;
@@ -27,10 +27,11 @@ begin
   Elementopila.simb:=VQ;
   ElementoPila.p_arbol:=arbol;
   apilar(elementopila,pila);
-  obtenersigcomplex(Fuente,Control,Compolex,Lexema);
+  obtenersigcomplex(Fuente,Control,Compolex,Lexema,Lista);
 while not((Controlador='Error') or (Controlador='Exito')) do
   begin
        elementopila:=desapilar(pila);
+          writeln('compolex   ', compolex , '   Lexema  ',lexema );
        arbol:=elementopila.p_arbol;
        If elementopila.simb<error then    BEGIN // si el componente desapilado es un terminal
           IF (compolex=elementopila.simb) then  begin  // si el componente desapilado es igual a el componente de la cadena avanza el control
@@ -38,7 +39,7 @@ while not((Controlador='Error') or (Controlador='Exito')) do
                 controlador:='Exito'
              else begin
              arbol^.lexema:=lexema;
-             obtenersigcomplex(Fuente,Control,Compolex,Lexema);
+             obtenersigcomplex(Fuente,Control,Compolex,Lexema,Lista);
              end;
           end
              else
@@ -63,10 +64,10 @@ while not((Controlador='Error') or (Controlador='Exito')) do
                     end;
                end;
        end;
-   //write('compolex   ', compolex );
+
   end;
   writeln(controlador);
-  guardar_arbol_enarchivo (arbol);
+
 end;
 
 
