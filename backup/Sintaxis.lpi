@@ -26,7 +26,7 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="7">
+    <Units Count="9">
       <Unit0>
         <Filename Value="Sintaxis.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -60,6 +60,16 @@
         <Filename Value="lista.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="presentadores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Presentadores"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="menu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Menu"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

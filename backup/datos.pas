@@ -46,8 +46,9 @@ t_TAS = array[VQ..VG,Tprogram..pesos] of t_puntero_celda;
 t_archivo_arbol= file of char ;
 
 
+
 procedure Cerrar_Archivo(var ar:T_Archivo);
-procedure Abrir_Archivo(var ar: t_archivo);
+procedure Abrir_Archivo(var ar: t_archivo; ruta:string);
 function leer_archivo(var ar: T_Archivo; pos :cardinal):char;
 Procedure crear_pila(tope:t_pila);
 procedure Apilar(nuevoDato: t_elemento_pila; var puntero:t_pila);
@@ -61,7 +62,7 @@ procedure guardar_arbol_enarchivo(var ar : text; var arbol:t_arbol; desplazamien
 procedure Abrir_Archivo_Arbol(var ar: text);
 procedure cerrar_archivo_Arbol(var ar : text);
 implementation
-procedure Abrir_Archivo(var ar: t_Archivo);
+procedure Abrir_Archivo(var ar: t_Archivo; ruta:string);
 begin
   assign(ar,'D:\archivos\archivo');
   {$I-}
@@ -172,7 +173,7 @@ begin
 
  colocar_tas(tas,VListaSentencias,TDurante,VSentencia,1,3);
  colocar_tas(tas,VListaSentencias,TDurante,Tpuntoycoma,2,3);
- colocar_tas(tas,VListaSentencias,TDurante,VU,2,3);
+ colocar_tas(tas,VListaSentencias,TDurante,VU,3,3);
 
  colocar_tas(tas,VU,Tid,VListaSentencias,1,1);
 

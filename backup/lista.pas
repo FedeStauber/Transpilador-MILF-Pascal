@@ -131,7 +131,7 @@ implementation
         if (l.act^.variable<buscado) then
               siguiente(l);
         if (l.act^.variable=buscado) then
-           recuperar_buscado:=l.act^.valor;
+           recuperar_valor_buscado:=l.act^.valor;
            siguiente(l);
    end;
  end;

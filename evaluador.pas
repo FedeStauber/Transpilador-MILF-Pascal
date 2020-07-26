@@ -154,7 +154,7 @@ end;
 
 //R  → Raiz(OP.entero) | Potencia(OP.entero) | X
 procedure EvaluarR(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : real);
-var resultado2 : real;
+var resultado2,resultado3 : real;
     i:integer;
 begin
 If (Arbol^.Hijos[1]^.simb = TRaiz)  then
@@ -212,7 +212,9 @@ If (Arbol^.hijos[1]^.simb = Tdiv)  then
 begin
    EvaluarR(Arbol^.hijos[2],Estado,Resultado1) ;
    If Resultado1 <>0  then
-      Resultado2:=Resultado2/Resultado1 ;
+      Resultado2:=trunc(Resultado2/Resultado1)
+   else
+    Writeln('La division no se realizo, revisa tus hojas, no se puede dividir por cero');
 end;
 end;
 
@@ -304,7 +306,7 @@ end;
 
 
 //G →  Comparador OP
-Procedure EvaluarG(Arbol : T_arbol; var Estado : t_lista;var Resultado1:Boolean;var Resultado2:real) ;
+Procedure EvaluarG(Arbol : T_arbol; var Estado : t_lista; var Resultado1:Boolean;var Resultado2:real) ;
 var resultado3 :real;
 begin
 EvaluarOP(Arbol^.hijos[2],Estado,Resultado3);
@@ -314,6 +316,7 @@ case Arbol^.hijos[1]^.lexema of
  '<' : Resultado1:= resultado2 < Resultado3 ;
  '>' : Resultado1:= Resultado2 > Resultado3 ;
  '=' : Resultado1:= Resultado2 = resultado3 ;
+ '<>' : Resultado1:= Resultado2 <> resultado3 ;
 end;
 end;
 

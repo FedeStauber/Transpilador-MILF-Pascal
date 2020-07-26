@@ -139,8 +139,12 @@ Begin
     EstadoActual:=Delta[EstadoActual,carasimbcadena(C)];
     If carasimbcadena(C)<>Otrocad then begin
     Lexema:=Lexema+C;
+    end
+    else
+    If C= #32 then
+    lexema:=lexema+#32;
     Inc(control);
-    end;
+
 
   end;
   if(EstadoActual in [2,4]) then

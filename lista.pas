@@ -44,6 +44,7 @@ implementation
  begin
      new(dir);
      dir^.variable:=variable;
+      dir^.valor:=0;
      if ((l.cab=nil) or (l.cab^.variable>variable)) then
      begin
        dir^.sig:=l.cab;

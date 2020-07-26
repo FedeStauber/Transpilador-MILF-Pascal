@@ -5,11 +5,11 @@ interface
 
 uses crt, Datos,Lexico,Lista;
 
-procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas;var arbol:t_arbol; var Lista : t_lista);
+procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas;var arbol:t_arbol; var Lista : t_lista; var verificador : string);
 
 implementation
 
-procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas; var arbol:t_arbol; var Lista : t_lista);
+procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas; var arbol:t_arbol; var Lista : t_lista ; var verificador : string);
 var compolex:t_simGramatical;
     Controlador,Lexema:String;
     ElementoPila,elementopila2,elementopila3:t_elemento_pila;
@@ -28,12 +28,12 @@ begin
   ElementoPila.p_arbol:=arbol;
   apilar(elementopila,pila);
   obtenersigcomplex(Fuente,Control,Compolex,Lexema,Lista);
-while not((Controlador='Error') or (Controlador='Exito')) do
+while not((Controlador='Error') or (Controlador='Exito') or (Controlador='Error Lexico')) do
   begin
        elementopila:=desapilar(pila);
        arbol:=elementopila.p_arbol;
-       If elementopila.simb<error then    BEGIN // si el componente desapilado es un terminal
-          IF (compolex=elementopila.simb) then  begin  // si el componente desapilado es igual a el componente de la cadena avanza el control
+       If elementopila.simb<error then    BEGIN
+          IF (compolex=elementopila.simb) then  begin
              IF (compolex=pesos) then
                 controlador:='Exito'
              else begin
@@ -46,7 +46,7 @@ while not((Controlador='Error') or (Controlador='Exito')) do
        end
        else
        begin
-           If elementopila.simb>pesos then // si el componente desapilado es una variable
+           If elementopila.simb>pesos then
             if tas[elementopila.simb,compolex]=nil then
                controlador:='Error'
                else
@@ -62,11 +62,13 @@ while not((Controlador='Error') or (Controlador='Exito')) do
                      apilar(elementopila2,pila);
                     end;
                end;
+           IF elementopila.simb=error then
+            controlador:= 'Error Lexico';
        end;
     //writeln('compolex   ', elementopila.simb , '   Lexema  ',lexema );
   end;
-
-  writeln(controlador);
+  verificador:= controlador;
+  //writeln(controlador);
 
 end;
 

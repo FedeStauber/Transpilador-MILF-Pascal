@@ -362,7 +362,7 @@ end;
 end;
 
 
-procedure obtenersigcomplex(var fuente:t_archivo; var control:integer; var compolex:t_simGramatical; var lexema:string; var l : t_lista); //var l:t_tabla);
+procedure obtenersigcomplex(var fuente:t_archivo; var control:integer; var compolex:t_simGramatical; var lexema:string; var l : t_lista);
 var
 C:char;
 begin

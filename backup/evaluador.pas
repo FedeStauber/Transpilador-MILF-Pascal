@@ -32,7 +32,7 @@ Procedure EvaluarC(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : boolea
 procedure EvaluarF(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : boolean);
 Procedure EvaluarN(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : boolean);
 Procedure EvaluarW(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : boolean);
-Procedure EvaluarG(Arbol : T_arbol; var Estado : t_lista;var Resultado1:Boolean; var Resultado2:real) ;
+Procedure EvaluarG(Arbol : T_arbol; var Estado : t_lista; Resultado1:Boolean; var Resultado2:real) ;
 procedure EstadoAgregarVariable( var Estado : t_lista ; variable : string );
 procedure EstadoAsignarValor(  var Estado : t_lista ; variable: string; var resultado1:real );
 function Recuperar_valor(var estado : t_lista ; variable: string):real;
@@ -154,7 +154,7 @@ end;
 
 //R  → Raiz(OP.entero) | Potencia(OP.entero) | X
 procedure EvaluarR(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : real);
-var resultado2 : real;
+var resultado2,resultado3 : real;
     i:integer;
 begin
 If (Arbol^.Hijos[1]^.simb = TRaiz)  then
@@ -178,7 +178,7 @@ Procedure EvaluarX(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : real);
 var i:integer;
 begin
 case Arbol^.hijos[1]^.simb of
-     TcorcheteA: EvaluarOP(Arbol^.Hijos[2],Estado,Resultado1);
+     TparA: EvaluarOP(Arbol^.Hijos[2],Estado,Resultado1);
      Tresta: begin
                   EvaluarX(Arbol^.Hijos[2],Estado,Resultado1);
 	          resultado1:= -1 * resultado1
@@ -212,7 +212,9 @@ If (Arbol^.hijos[1]^.simb = Tdiv)  then
 begin
    EvaluarR(Arbol^.hijos[2],Estado,Resultado1) ;
    If Resultado1 <>0  then
-      Resultado2:=Resultado2/Resultado1 ;
+      Resultado2:=trunc(Resultado2/Resultado1)
+   else
+    Writeln('La division no se realizo, revisa tus hojas, no se puede dividir por cero');
 end;
 end;
 
@@ -314,6 +316,7 @@ case Arbol^.hijos[1]^.lexema of
  '<' : Resultado1:= resultado2 < Resultado3 ;
  '>' : Resultado1:= Resultado2 > Resultado3 ;
  '=' : Resultado1:= Resultado2 = resultado3 ;
+ '<>' : Resultado1:= Resultado2 <> resultado3 ;
 end;
 end;
 
