@@ -172,7 +172,7 @@ begin
 
  colocar_tas(tas,VListaSentencias,TDurante,VSentencia,1,3);
  colocar_tas(tas,VListaSentencias,TDurante,Tpuntoycoma,2,3);
- colocar_tas(tas,VListaSentencias,TDurante,VU,2,3);
+ colocar_tas(tas,VListaSentencias,TDurante,VU,3,3);
 
  colocar_tas(tas,VU,Tid,VListaSentencias,1,1);
 
@@ -364,8 +364,12 @@ colocar_tas(tas,VX,TNum,TNum,1,1);
 colocar_tas(tas,VTalCosa,TNel,VN,1,2);
 colocar_tas(tas,VTalCosa,TNel,VC,2,2);
 
+colocar_epsilon(tas,VF,TcorcheteA);
+
 colocar_tas(tas,VF,TY,TY,1,2);
 colocar_tas(tas,VF,TY,VTalcosa,2,2);
+
+colocar_epsilon(tas,VF,TLlaveC);
 
 colocar_tas(tas,VN,TNel,TNel,1,2);
 colocar_tas(tas,VN,TNel,VW,2,2);
@@ -404,25 +408,60 @@ colocar_tas(tas,VL,Tdiv,VR,2,2);
 
 colocar_tas(tas,VX,Tentero,Tentero,1,1);
 
+colocar_tas(tas,VC,TcorcheteA,VF,1,1);
+
 colocar_tas(tas,VC,TY,VF,1,1);
 
 colocar_tas(tas,VC,Tero,TerO,1,2);
 colocar_tas(tas,VC,Tero,VTalcosa,2,2);
 
+colocar_tas(tas,VC,TllaveC,VF,1,1);
+
 colocar_tas(tas,VW,TllaveA,TLlaveA,1,3);
 colocar_tas(tas,VW,TllaveA,Vtalcosa,2,3);
 colocar_tas(tas,VW,TllaveA,TllaveC,3,3);
 
-colocar_tas(tas,VC,Tnel,VF,3,3);
-
-colocar_tas(tas,VF,Tnel,VN,3,3);
-
-colocar_epsilon(tas,VB,Tnel);
-
-colocar_epsilon(tas,VD,Tnel);
-
 colocar_epsilon(tas,Vz,Tpun);
 
+colocar_tas(tas,VTalcosa,Tid,VN,1,2);
+colocar_tas(tas,VTalcosa,Tid,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tpara,VN,1,2);
+colocar_tas(tas,VTalcosa,Tpara,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tresta,VN,1,2);
+colocar_tas(tas,VTalcosa,Tresta,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Traiz,VN,1,2);
+colocar_tas(tas,VTalcosa,Traiz,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tpotencia,VN,1,2);
+colocar_tas(tas,VTalcosa,Tpotencia,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tllavea,VN,1,2);
+colocar_tas(tas,VTalcosa,Tllavea,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tnum,VN,1,2);
+colocar_tas(tas,VTalcosa,Tnum,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tentero,VN,1,2);
+colocar_tas(tas,VTalcosa,Tentero,VC,2,2);
+
+colocar_tas(tas,VN,Tid,VW,1,1);
+
+colocar_tas(tas,VN,Tpara,VW,1,1);
+
+colocar_tas(tas,VN,Tresta,VW,1,1);
+
+colocar_tas(tas,VN,Traiz,VW,1,1);
+
+colocar_tas(tas,VN,Tpotencia,VW,1,1);
+
+colocar_tas(tas,VN,Tllavea,VW,1,1);
+
+colocar_tas(tas,VN,Tnum,VW,1,1);
+
+colocar_tas(tas,VN,Tentero,VW,1,1);
 
 end;
 procedure crear_arbol(var raiz : t_arbol);

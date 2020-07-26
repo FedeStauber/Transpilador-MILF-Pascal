@@ -31,6 +31,7 @@ begin
   obtener_arbol_derivacion(ar,pila,TAS,arbol,L);
   guardar_arbol_enarchivo (ar_arbol,arbol,desplazamiento) ;
   primero(l);
+  evaluarQ(Arbol,L);
  { while not (fin_lista(l)) do
   begin
     writeln(recuperar_lista(L).variable);

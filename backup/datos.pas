@@ -398,9 +398,6 @@ colocar_tas(tas,VW,Tentero,VG,2,2);
 colocar_tas(tas,VG,TComparador,TComparador,1,2);
 colocar_tas(tas,VG,TComparador,VOP,2,2);
 
-//colocar_tas(tas,VG,TLlaveA,Vop,1,2);
-//colocar_tas(tas,VG,TLlaveA,Vg,2,2);
-
 colocar_epsilon(tas,VB,Tpun);
 
 colocar_tas(tas,VL,Tproducto,Tproducto,1,2);
@@ -426,6 +423,45 @@ colocar_tas(tas,VW,TllaveA,TllaveC,3,3);
 
 colocar_epsilon(tas,Vz,Tpun);
 
+colocar_tas(tas,VTalcosa,Tid,VN,1,2);
+colocar_tas(tas,VTalcosa,Tid,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tpara,VN,1,2);
+colocar_tas(tas,VTalcosa,Tpara,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tresta,VN,1,2);
+colocar_tas(tas,VTalcosa,Tresta,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Traiz,VN,1,2);
+colocar_tas(tas,VTalcosa,Traiz,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tpotencia,VN,1,2);
+colocar_tas(tas,VTalcosa,Tpotencia,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tllavea,VN,1,2);
+colocar_tas(tas,VTalcosa,Tllavea,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tnum,VN,1,2);
+colocar_tas(tas,VTalcosa,Tnum,VC,2,2);
+
+colocar_tas(tas,VTalcosa,Tentero,VN,1,2);
+colocar_tas(tas,VTalcosa,Tentero,VC,2,2);
+
+colocar_tas(tas,VN,Tid,VW,1,1);
+
+colocar_tas(tas,VN,Tpara,VW,1,1);
+
+colocar_tas(tas,VN,Tresta,VW,1,1);
+
+colocar_tas(tas,VN,Traiz,VW,1,1);
+
+colocar_tas(tas,VN,Tpotencia,VW,1,1);
+
+colocar_tas(tas,VN,Tllavea,VW,1,1);
+
+colocar_tas(tas,VN,Tnum,VW,1,1);
+
+colocar_tas(tas,VN,Tentero,VW,1,1);
 
 end;
 procedure crear_arbol(var raiz : t_arbol);

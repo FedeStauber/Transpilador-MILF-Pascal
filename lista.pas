@@ -29,6 +29,8 @@ procedure siguiente(var l : t_lista);
 function fin_lista(var l : t_lista):boolean;
 procedure disposear_lista(var l : t_lista);
 function esta_en_lista(var l:t_lista; buscado : string):boolean;
+procedure cambiar_valor(var l:t_lista; buscado : string; valor:real);
+function recuperar_valor_buscado(var l:t_lista; buscado : string):real;
 
 implementation
  procedure crear_lista(var l : t_lista);
@@ -99,18 +101,19 @@ implementation
  begin
    esta_en_lista:=false;
    l.act:=l.cab;
-   If not (l.cab=nil) then   begin
    while (not fin_lista(l)) do begin
         if (l.act^.variable<buscado) then
               siguiente(l);
+        if not fin_lista(l) then begin
         if (l.act^.variable=buscado) then
            esta_en_lista:=true;
            siguiente(l);
+
+        end;
    end;
  end;
- end;
 
-  procedure cambiar_valor(var l:t_lista; buscado : string; valor:double);
+  procedure cambiar_valor(var l:t_lista; buscado : string; valor:real);
  begin
    primero(l);
 
@@ -118,6 +121,20 @@ implementation
               siguiente(l);
         if (l.act^.variable=buscado) then
            l.act^.valor:=valor;
+ end;
+
+ function recuperar_valor_buscado(var l:t_lista; buscado : string):real;
+ begin
+   l.act:=l.cab;
+   If not (l.cab=nil) then   begin
+   while (not fin_lista(l)) do begin
+        if (l.act^.variable<buscado) then
+              siguiente(l);
+        if (l.act^.variable=buscado) then
+           recuperar_valor_buscado:=l.act^.valor;
+           siguiente(l);
+   end;
+ end;
  end;
 end.
 

@@ -137,9 +137,11 @@ Begin
   begin
     C:=leer_archivo(fuente,control);
     EstadoActual:=Delta[EstadoActual,carasimbcadena(C)];
-    If carasimbcadena(C)<>Otrocad then
+    If carasimbcadena(C)<>Otrocad then begin
     Lexema:=Lexema+C;
     Inc(control);
+    end;
+
   end;
   if(EstadoActual in [2,4]) then
      begin
@@ -369,10 +371,6 @@ Begin
      c:=leer_archivo(fuente,control);
 end;
     if es_id(fuente,control,compolex,lexema) then
-    begin
-         If  not (esta_en_lista(L,Lexema)) then
-             agregar_lista(l,Lexema) ;
-    end
     else
         If es_num (fuente,control,compolex,lexema) then
         else

@@ -31,7 +31,6 @@ begin
 while not((Controlador='Error') or (Controlador='Exito')) do
   begin
        elementopila:=desapilar(pila);
-       writeln('compolex   ', elementopila.simb , '   Lexema  ',lexema );
        arbol:=elementopila.p_arbol;
        If elementopila.simb<error then    BEGIN // si el componente desapilado es un terminal
           IF (compolex=elementopila.simb) then  begin  // si el componente desapilado es igual a el componente de la cadena avanza el control
@@ -64,8 +63,9 @@ while not((Controlador='Error') or (Controlador='Exito')) do
                     end;
                end;
        end;
-
+    //writeln('compolex   ', elementopila.simb , '   Lexema  ',lexema );
   end;
+
   writeln(controlador);
 
 end;

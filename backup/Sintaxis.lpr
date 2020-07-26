@@ -29,14 +29,15 @@ begin
   clrscr;  }
   crear_arbol(arbol);
   obtener_arbol_derivacion(ar,pila,TAS,arbol,L);
-  guardar_arbol_enarchivo (ar_arbol,arbol,desplazamiento) ;
+  //guardar_arbol_enarchivo (ar_arbol,arbol,desplazamiento) ;
   primero(l);
+  evaluarQ(Arbol,L);
  { while not (fin_lista(l)) do
   begin
     writeln(recuperar_lista(L).variable);
     siguiente(l);
-  end;
-  readkey;     }
+  end;     }
+  readkey;
   cerrar_Archivo(ar);
   cerrar_archivo_Arbol(ar_arbol);
 end.
