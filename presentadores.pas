@@ -44,8 +44,14 @@ begin
                   evaluarQ(arbol,lista);
                   readkey;
              end;
-   'Error' :  Writeln('El archivo tiene un problema de indole sintactico debe corregirlo para continuar');
-   'Error Lexico' : Writeln('El archivo tiene un problema de indole lexico debe corregirlo para continuar');
+   'Error' : begin
+                  Writeln('El archivo tiene un problema de indole sintactico debe corregirlo para continuar');
+                  readkeY;
+             end;
+   'Error Lexico' : begin
+                         Writeln('El archivo tiene un problema de indole lexico debe corregirlo para continuar');
+                         readkey;
+                    end;
    end;
    cerrar_Archivo(ar);
 end;

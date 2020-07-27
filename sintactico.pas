@@ -65,7 +65,7 @@ while not((Controlador='Error') or (Controlador='Exito') or (Controlador='Error 
            IF elementopila.simb=error then
             controlador:= 'Error Lexico';
        end;
-    //writeln('compolex   ', elementopila.simb , '   Lexema  ',lexema );
+  //writeln('compolex   ', elementopila.simb , '   Lexema  ',lexema );
   end;
   verificador:= controlador;
   //writeln(controlador);

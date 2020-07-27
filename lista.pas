@@ -43,9 +43,9 @@ implementation
  var ant,dir : t_puntero;
  begin
      new(dir);
-     dir^.variable:=variable;
+     dir^.variable:=upcase(variable);
       dir^.valor:=0;
-     if ((l.cab=nil) or (l.cab^.variable>variable)) then
+     if ((l.cab=nil) or (upcase(l.cab^.variable)>upcase(variable))) then
      begin
        dir^.sig:=l.cab;
        l.cab:=dir;
@@ -53,7 +53,7 @@ implementation
      else begin
        ant:=l.cab;
        l.act:=l.cab^.sig;
-       while ((l.act<>nil) and (l.act^.variable<variable)) do
+       while ((l.act<>nil) and (upcase(l.act^.variable)<upcase(variable))) do
        begin
              ant:=l.act;
              l.act:=l.act^.sig;
@@ -103,10 +103,10 @@ implementation
    esta_en_lista:=false;
    l.act:=l.cab;
    while (not fin_lista(l)) do begin
-        if (l.act^.variable<buscado) then
+        if (upcase(l.act^.variable)<upcase(buscado)) then
               siguiente(l);
         if not fin_lista(l) then begin
-        if (l.act^.variable=buscado) then
+        if (upcase(l.act^.variable)=upcase(buscado)) then
            esta_en_lista:=true;
            siguiente(l);
 
@@ -118,9 +118,9 @@ implementation
  begin
    primero(l);
 
-       while (l.act^.variable<buscado)do
+       while (upcase(l.act^.variable)<upcase(buscado))do
               siguiente(l);
-        if (l.act^.variable=buscado) then
+        if (upcase(l.act^.variable)=upcase(buscado)) then
            l.act^.valor:=valor;
  end;
 
@@ -129,9 +129,9 @@ implementation
    l.act:=l.cab;
    If not (l.cab=nil) then   begin
    while (not fin_lista(l)) do begin
-        if (l.act^.variable<buscado) then
+        if (upcase(l.act^.variable)<upcase(buscado)) then
               siguiente(l);
-        if (l.act^.variable=buscado) then
+        if (upcase(l.act^.variable)=upcase(buscado)) then
            recuperar_valor_buscado:=l.act^.valor;
            siguiente(l);
    end;

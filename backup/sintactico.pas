@@ -5,7 +5,7 @@ interface
 
 uses crt, Datos,Lexico,Lista;
 
-procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas;var arbol:t_arbol; var Lista : t_lista);
+procedure obtener_arbol_derivacion(var fuente : t_archivo; var pila:t_pila; var TAS: t_tas;var arbol:t_arbol; var Lista : t_lista; var verificador : string);
 
 implementation
 

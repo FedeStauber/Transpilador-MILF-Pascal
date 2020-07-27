@@ -13,9 +13,9 @@ implementation
 Procedure Establecer_ruta(var ruta : string; opcion : integer);
 begin
      case opcion of
-     1:ruta:='D:\ARCHIVOS\MILF\FIBONACCI';
-     2:ruta:='D:\ARCHIVOS\MILF\M_C_M';
-     3:ruta:='D:\ARCHIVOS\MILF\PROMEDIO';
+     1:ruta:='D:\ARCHIVOS\MILF\FIBONACCI.txt';
+     2:ruta:='D:\ARCHIVOS\MILF\M_C_M.txt';
+     3:ruta:='D:\ARCHIVOS\MILF\PROMEDIO.txt';
      4:begin
              Writeln('Escriba la ruta del archivo a evaluar');
              Readln(ruta);

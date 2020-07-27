@@ -32,7 +32,7 @@ Procedure EvaluarC(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : boolea
 procedure EvaluarF(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : boolean);
 Procedure EvaluarN(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : boolean);
 Procedure EvaluarW(Arbol : T_arbol ;var Estado : t_lista;var resultado1 : boolean);
-Procedure EvaluarG(Arbol : T_arbol; var Estado : t_lista; Resultado1:Boolean; var Resultado2:real) ;
+Procedure EvaluarG(Arbol : T_arbol; var Estado : t_lista;var Resultado1:Boolean; var Resultado2:real) ;
 procedure EstadoAgregarVariable( var Estado : t_lista ; variable : string );
 procedure EstadoAsignarValor(  var Estado : t_lista ; variable: string; var resultado1:real );
 function Recuperar_valor(var estado : t_lista ; variable: string):real;
@@ -161,7 +161,8 @@ If (Arbol^.Hijos[1]^.simb = TRaiz)  then
 begin
      EvaluarOP(Arbol^.Hijos[3],Estado,Resultado1);
      val(Arbol^.Hijos[5]^.Lexema,resultado2,i);
-     Resultado1:=Exp(1/resultado2)*ln(Resultado1);
+     writeln(resultado2:0:2);
+     Resultado1:=Exp((1/resultado2)*ln(Resultado1));
 end;
 If (Arbol^.Hijos[1]^.simb = TPotencia) then
 begin
@@ -306,7 +307,7 @@ end;
 
 
 //G →  Comparador OP
-Procedure EvaluarG(Arbol : T_arbol; var Estado : t_lista;var Resultado1:Boolean;var Resultado2:real) ;
+Procedure EvaluarG(Arbol : T_arbol; var Estado : t_lista; var Resultado1:Boolean;var Resultado2:real) ;
 var resultado3 :real;
 begin
 EvaluarOP(Arbol^.hijos[2],Estado,Resultado3);

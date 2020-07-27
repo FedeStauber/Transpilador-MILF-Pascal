@@ -161,7 +161,7 @@ If (Arbol^.Hijos[1]^.simb = TRaiz)  then
 begin
      EvaluarOP(Arbol^.Hijos[3],Estado,Resultado1);
      val(Arbol^.Hijos[5]^.Lexema,resultado2,i);
-     Resultado1:=Exp(1/resultado2)*ln(Resultado1);
+     Resultado1:=Exp((1/resultado2)*ln(Resultado1));
 end;
 If (Arbol^.Hijos[1]^.simb = TPotencia) then
 begin
